@@ -1,4 +1,6 @@
 <script lang="typescript" context="module">
+  import { onMount } from "svelte";
+
   const t = (trans: { [lang: string]: string }) => {
     return (lang: string, override: string | null = null) => {
       if (override !== null) {
@@ -38,6 +40,7 @@
   export let uselinkedin = false;
   export let textshare: string = null;
   export let textcopy: string = null;
+  export let css: string = null;
 
   // Can we simplify these? https://github.com/sveltejs/svelte/issues/4518#issuecomment-640082467
   let urlUE: string;
@@ -47,6 +50,7 @@
   let linkedInSharingUrl: string;
   let whatsAppSharingUrl: string;
   let mailSharingUrl: string;
+  let style: string;
   $: urlUE = encodeURIComponent(shareurl) as string;
   $: titleUE = encodeURIComponent(sharetitle);
   $: facebookSharingUrl = `https://www.facebook.com/sharer.php?u=${urlUE}`;
@@ -54,6 +58,9 @@
   $: linkedInSharingUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${urlUE}&title=${titleUE}&summary=&source=LinkedIn`;
   $: whatsAppSharingUrl = `whatsapp://send?text=${urlUE}`;
   $: mailSharingUrl = `mailto:?subject=${titleUE}&body=${urlUE}`;
+
+  // some reason the intellisense breaks here if I don't include extra +
+  $: style = css ? ("<style" + ">" + css + "</style>") : ""; 
 
   let isOpen = false;
   let isOpenAnim = false;
@@ -205,6 +212,7 @@
 
 <svelte:options tag="oksidi-sharer" />
 <div class="sharer">
+  {@html style}
   <a href="#share" class="opener" on:click={onClickToggle}>
 
     {#if !isOpen || !isOpenAnim}
