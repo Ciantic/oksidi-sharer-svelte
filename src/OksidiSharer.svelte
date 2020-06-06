@@ -25,8 +25,8 @@
 </script>
 
 <script lang="typescript">
-  import { onMount } from "svelte";
-
+  // At the moment svelte does not support hyphenated attributes for web-component:
+  // https://github.com/sveltejs/svelte/issues/3852
   export let lang = document?.documentElement?.lang ?? "en";
   export let shareurl = window.location.href;
   export let sharetitle = document.title;
