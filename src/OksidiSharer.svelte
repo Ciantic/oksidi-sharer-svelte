@@ -104,7 +104,8 @@
 <style type="text/scss">
   $fg: var(--color, #000000);
   $fg-hover: var(--hover-color, gray);
-  $anim-speed: 0.21s;
+  $anim-speed: 0.25s;
+  $open-anim-speed: 0.2s;
   $size: var(--share-btn-size, 1.5em);
   $size2: var(--share-icon-size, 1.2em);
   .sharer {
@@ -137,16 +138,15 @@
 
   .choices {
     list-style: none;
-    padding: 0 0 0 0.5em;
+    padding: 0 0 0 0.4em;
     margin: 0;
     display: inline-block;
     position: relative;
     top: -0.1em;
-    li {
+    > li {
       display: inline-block;
-      transition: transform $anim-speed, opacity $anim-speed;
+      transition: transform $open-anim-speed, opacity $open-anim-speed;
       opacity: 0;
-      padding-right: 0.5em;
     }
     @for $i from 1 to 12 {
       > li:nth-child(#{$i}) {
@@ -156,6 +156,7 @@
 
     a {
       display: block;
+      padding: 0 0.25em;
 
       &:hover {
         svg {
@@ -178,7 +179,7 @@
       }
     }
   }
-  .copy-to-clipboard-tip {
+  .copy-tip {
     line-height: 1.2;
     padding: 0.4em;
     position: absolute;
@@ -328,7 +329,7 @@
             target="_blank">
 
             {#if showCopyToClipboardTooltip}
-              <div class="copy-to-clipboard-tip">
+              <div class="copy-tip">
                 {_.textCopyI18n(lang, textcopy)}
               </div>
             {/if}
@@ -353,7 +354,7 @@
           </a>
         </li>
       {/if}
-
+      
       {#if useemail}
         <li>
           <a href={mailSharingUrl} target="_blank">
@@ -369,7 +370,6 @@
           </a>
         </li>
       {/if}
-
     </ul>
   {/if}
 </div>
