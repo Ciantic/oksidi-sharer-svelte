@@ -1,6 +1,4 @@
 <script lang="typescript" context="module">
-  import { onMount } from "svelte";
-
   const t = (trans: { [lang: string]: string }) => {
     return (lang: string, override: string | null = null) => {
       if (override !== null) {
