@@ -1,3 +1,3 @@
 # oksidi-sharer
 
-See public/index.html for usage.
+[Click here to see example.](https://ciantic.github.io/oksidi-sharer/public/)
