@@ -106,8 +106,8 @@
   $fg-hover: var(--hover-color, gray);
   $anim-speed: 0.25s;
   $open-anim-speed: 0.2s;
-  $size: var(--share-btn-size, 1.5em);
-  $size2: var(--share-icon-size, 1.2em);
+  $size: var(--opener-icon-size, 1.5em);
+  $size2: var(--icon-size, 1.2em);
   .sharer {
     color: $fg;
     line-height: $size;
