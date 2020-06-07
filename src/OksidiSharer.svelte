@@ -128,10 +128,12 @@
       position: relative;
       top: -0.08em;
     }
-    &:hover {
-      color: $fg-hover;
-      svg {
-        fill: $fg-hover;
+    @media (hover: hover) {
+      &:hover {
+        color: $fg-hover;
+        svg {
+          fill: $fg-hover;
+        }
       }
     }
   }
@@ -158,9 +160,11 @@
       display: block;
       padding: 0 0.25em;
 
-      &:hover {
-        svg {
-          fill: $fg-hover;
+      @media (hover: hover) {
+        &:hover {
+          svg {
+            fill: $fg-hover;
+          }
         }
       }
     }
