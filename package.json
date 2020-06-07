@@ -1,4 +1,13 @@
 {
+    "name": "@oksidi/sharer",
+    "version": "0.0.1",
+    "repository": {
+        "url": "https://github.com/Ciantic/oksidi-sharer"
+    },
+    "author": {
+        "email": "ciantic@oksidi.com",
+        "name": "Jari Otto Oskari Pennanen"
+    },
     "scripts": {
         "build": "rollup -c",
         "dev": "rollup -c -w",
